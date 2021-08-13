@@ -69,7 +69,7 @@ public class MenuController extends BaseController {
     public List<TreeNode> toTreeLoad(HttpServletRequest request) {
         //获取用户登陆id根据不同的用户有不停菜单
         User user = (User) request.getSession().getAttribute("user");
-        ///获取用户登陆id根据不同的用户有不停菜单
+        //获取用户登陆id根据不同的用户有不停菜单
         List<Menu> list = menuService.queryMenuByUid(user.getUserid());
         //创建list集合
         //把list放入nodes
@@ -93,7 +93,7 @@ public class MenuController extends BaseController {
             }
             //将n2放入n1的子级中   id为子级
             for (TreeNode n2 : nodes) {
-                if (n2.getPid() == n1.getId()) {
+                if (n2.getPid().equals( n1.getId())) {
                     n1.getChildren().add(n2);
                 }
             }
